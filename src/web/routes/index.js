@@ -70,6 +70,14 @@ const Index = () => (
       )}
     />
     <Route
+      path="/update-profile"
+      render={props => (
+        <TemplateSidebar pageTitle="Update Profile">
+          <UpdateProfileContainer {...props} Layout={UpdateProfileComponent} />
+        </TemplateSidebar>
+      )}
+    />
+    <Route
       path="/recipes"
       render={props => (
         <TemplateSidebar pageTitle="Recipes">

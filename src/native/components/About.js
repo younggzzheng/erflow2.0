@@ -3,46 +3,25 @@ import {
   Container, Content, Text, H1, H2, H3,
 } from 'native-base';
 import Spacer from './UI/Spacer';
+import {ImageBackground} from 'react-native'
 
 const About = () => (
   <Container>
-    <Content padder>
-      <Spacer size={30} />
-      <H1>
-        Heading 1
+        <ImageBackground source={ require('./launch.png')} style={{width: '100%', height: '100%'}}>
+
+    <Content >
+
+    <Spacer size={200} />
+      <H1 style={{color: 'white'}}>
+        {/* Introduction to ER Flow */}
       </H1>
       <Spacer size={10} />
-      <Text>
-        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo,
-        tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem
-        malesuada magna mollis euismod. Donec sed odio dui.
-        {' '}
-      </Text>
-
-      <Spacer size={30} />
-      <H2>
-        Heading 2
-      </H2>
-      <Spacer size={10} />
-      <Text>
-        Elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
-        mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
-        magna mollis euismod. Donec sed odio dui.
-        {' '}
-      </Text>
-
-      <Spacer size={30} />
-      <H3>
-        Heading 3
-      </H3>
-      <Spacer size={10} />
-      <Text>
-        Elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
-        mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
-        magna mollis euismod. Donec sed odio dui.
-        {' '}
+      <Text style={{color: 'white'}}>
+        {/* An application to gather data on ER flow in order to determine the biggest sources of inefficiency. [Some other introductory info] ER overcrowding leads to inefficiencies in hospitals. Tap below to scan a barcode.  */}
       </Text>
     </Content>
+    </ImageBackground>
+
   </Container>
 );
 

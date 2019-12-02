@@ -2,9 +2,9 @@ import Colors from '../../../native-base-theme/variables/commonColor';
 
 export default {
   navbarProps: {
-    navigationBarStyle: { backgroundColor: 'white' },
+    navigationBarStyle: { backgroundColor: '#473be7' },
     titleStyle: {
-      color: Colors.textColor,
+      color: '#473be7',
       alignSelf: 'center',
       letterSpacing: 2,
       fontSize: Colors.fontSizeBase,
@@ -13,7 +13,7 @@ export default {
   },
 
   tabProps: {
-    swipeEnabled: false,
+    swipeEnabled: true,
     activeBackgroundColor: 'rgba(255,255,255,0.1)',
     inactiveBackgroundColor: Colors.brandPrimary,
     tabBarStyle: { backgroundColor: Colors.brandPrimary },

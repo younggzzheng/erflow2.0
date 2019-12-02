@@ -23,7 +23,10 @@ We've created a quick little "API server" on [Google's Firebase Platform](https:
       ".read": true,
     	".indexOn": ["category"]
     },
-
+    "barcodes": {
+      ".read": true,
+    	".write": true
+    },
     "users": {
       "$uid": {
         ".read": "auth != null && auth.uid == $uid",

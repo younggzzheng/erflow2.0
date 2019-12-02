@@ -7,6 +7,7 @@ import { Actions } from 'react-native-router-flux';
 import Messages from '../UI/Messages';
 import Header from '../UI/Header';
 import Spacer from '../UI/Spacer';
+import {Alert} from 'react-native'
 
 class Login extends React.Component {
   static propTypes = {
@@ -40,7 +41,7 @@ class Login extends React.Component {
 
   handleSubmit = () => {
     const { onFormSubmit } = this.props;
-
+    Alert.alert("hello")
     return onFormSubmit(this.state)
       .then(() => setTimeout(() => Actions.pop(), 1000))
       .catch(() => {});

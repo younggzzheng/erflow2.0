@@ -47,8 +47,8 @@ const Profile = ({ member, logout }) => (
             <View>
               <Content padder>
                 <Header
-                  title="Hi there,"
-                  content="Please login to gain extra access"
+                  title="Provider Authentication"
+                  content="Please login using your ER Flow credentials, or sign on with Google."
                 />
               </Content>
 

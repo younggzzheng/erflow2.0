@@ -53,7 +53,7 @@ export default class BarcodeScanner extends React.Component {
   handleBarCodeScanned = ({ type, data }) => {
     this.setState({ scanned: true });
     alert(`Bar code with type ${type} and data ${data} has been scanned!`);
-    this.writeUserData(type,data);
+    this.writeUserData(type,data); // instead store value and change scene
   };
 
   writeUserData(type,data){

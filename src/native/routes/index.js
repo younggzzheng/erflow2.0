@@ -27,8 +27,12 @@ import ProfileComponent from '../components/User/Profile';
 import AboutComponent from '../components/About';
 
 import ScannerComponent from '../components/Scanner/BarcodeScanner';
+import ButtonsComponent from '../components/Scanner/Buttons';
 
 
+/* TODO: Make Scanner Component open Buttons Component on successful
+    scan and pass the data in as MRN */
+    
 const Index = (
   <Stack hideNavBar>
     <Scene hideNavBar>
@@ -39,7 +43,7 @@ const Index = (
         showLabel={false}
         {...DefaultProps.tabProps}
       >
-        
+
       <Stack
         key="profile"
         title="PROFILE"
@@ -80,28 +84,26 @@ const Index = (
           Layout={UpdateProfileComponent}
         />
         </Stack>
-      
+
         <Stack
           key="scanstack"
           title="SCAN"
           icon={() => <Icon name="camera" {...DefaultProps.icons} />}
           // {...DefaultProps.navbarProps}
         >
-        <Scene
-            key="scanner"
-            title="SCAN BARCODE"
-            // {...DefaultProps.navbarProps}
-            component={ScannerComponent}
-          />        
-          </Stack>
-        
-        <Stack
-          key="home"
-          title={AppConfig.appName.toUpperCase()}
-          icon={() => <Icon name="clipboard" {...DefaultProps.icons} />}
-          {...DefaultProps.navbarProps}
-        >
-          <Scene key="home" component={AboutComponent} />
+
+            <Scene
+                key="scanner"
+                title="SCAN CODE"
+                // {...DefaultProps.navbarProps}
+                component={ButtonsComponent}
+            />
+            <Scene
+                // back
+                key="buttons"
+                title="LOG DATA"
+                component={ButtonsComponent}
+            />
         </Stack>
       </Tabs>
     </Scene>

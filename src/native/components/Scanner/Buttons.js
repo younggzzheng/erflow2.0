@@ -34,6 +34,7 @@ const logButtonPress = function(action, mrn){
         const title = "Success"
         Alert.alert(title, message);
         console.log('logged: ' , data)
+        Actions.pop();
     }).catch((error)=>{
         //error callback
         const message = "Something went wrong!\n" + error;
@@ -57,7 +58,6 @@ const Buttons = ({mrn}) => (
             borderRadius={50}
             onPress = {() => {
                 logButtonPress("Triaged", mrn);
-                Actions.scanner;
             }
         }>
             <Text>Triaged</Text>
@@ -71,7 +71,6 @@ const Buttons = ({mrn}) => (
             borderRadius={50}
             onPress = {() => {
                 logButtonPress("Roomed", mrn);
-                Actions.scanner;
             }
         }>
             <Text>Roomed</Text>
@@ -85,7 +84,6 @@ const Buttons = ({mrn}) => (
             borderRadius={50}
             onPress = {() => {
                 logButtonPress("Seen by MD", mrn);
-                Actions.scanner;
             }
         }>
             <Text>Seen by MD</Text>
@@ -99,7 +97,6 @@ const Buttons = ({mrn}) => (
             borderRadius={50}
             onPress = {() => {
                 logButtonPress("Discharged by MD", mrn);
-                Actions.scanner;
             }
         }>
             <Text>Discharged by MD</Text>
@@ -113,7 +110,6 @@ const Buttons = ({mrn}) => (
             borderRadius={50}
             onPress = {() => {
                 logButtonPress("Discharged by RN", mrn);
-                Actions.scanner;
             }
         }>
             <Text>Discharged by RN</Text>
@@ -127,7 +123,6 @@ const Buttons = ({mrn}) => (
             borderRadius={50}
             onPress = {() => {
                 logButtonPress("Room cleaned", mrn);
-                Actions.scanner;
             }
         }>
             <Text>Room cleaned</Text>

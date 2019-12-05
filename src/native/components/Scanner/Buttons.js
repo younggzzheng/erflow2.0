@@ -34,6 +34,7 @@ const logButtonPress = function(action, mrn){
         const title = "Success"
         Alert.alert(title, message);
         console.log('logged: ' , data)
+        Actions.pop();
     }).catch((error)=>{
         //error callback
         const message = "Something went wrong!\n" + error;
@@ -41,7 +42,6 @@ const logButtonPress = function(action, mrn){
         Alert.alert(title, message);
         console.log('error: ' , error)
     });
-    Actions.pop();
 }
 
 const Buttons = ({mrn}) => (

@@ -32,7 +32,7 @@ import ButtonsComponent from '../components/Scanner/Buttons';
 
 /* TODO: Make Scanner Component open Buttons Component on successful
     scan and pass the data in as MRN */
-    
+
 const Index = (
   <Stack hideNavBar>
     <Scene hideNavBar>
@@ -91,15 +91,13 @@ const Index = (
           icon={() => <Icon name="camera" {...DefaultProps.icons} />}
           // {...DefaultProps.navbarProps}
         >
-
             <Scene
                 key="scanner"
-                title="SCAN CODE"
+                title="SCAN BARCODE"
                 // {...DefaultProps.navbarProps}
-                component={ButtonsComponent}
+                component={ScannerComponent}
             />
             <Scene
-                // back
                 key="buttons"
                 title="LOG DATA"
                 component={ButtonsComponent}

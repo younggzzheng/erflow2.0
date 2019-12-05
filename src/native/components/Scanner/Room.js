@@ -8,6 +8,7 @@ var roomNum;
 
 const logRoomEntry = function(mrn, room){
     FirebaseRef.child('barcodes').push({
+        action: "Room number entered",
         mrn: mrn ? mrn : "failed",
         room: room ? room : "failed",
         log_time: Firebase.database.ServerValue.TIMESTAMP
@@ -33,6 +34,7 @@ const Room = ({mrn}) => (
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: "#ffffff",
         paddingTop: 5,
     }}>
         <Text>Enter Room Number</Text>

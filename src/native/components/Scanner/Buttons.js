@@ -9,32 +9,25 @@ import { Actions } from 'react-native-router-flux';
 
 import { Firebase, FirebaseRef } from '../../../lib/firebase';
 import Spacer from '../UI/Spacer';
-/*
-export default class Buttons extends React.Component {
-    // TODO: Make MRN a prop
-    props = {
-        data: String,
-    };
 
-    render() {
-        const data = "hi";
-
-        return ( */
-
-const logButtonPress = function(action, mrn){
+const logButtonPress = function(action, num){
     const date = new Date();
+    if (action == "Room cleaned") {
+        dataType = "Room";
+    } else {
+        dataType = "MRN";
+    }
     FirebaseRef.child('barcodes').push({
         action,
-        MRN: mrn ? mrn : "failed",
+        num,
         log_time: Firebase.database.ServerValue.TIMESTAMP
     }).then((data)=>{
         //success callback
-        const message = '"' + action + '" action has been logged for MRN #' + mrn
+        const message = '"' + action + '" action has been logged for ' + dataType + ' #' + num
             + "\n\nTimestamp: " + date;
         const title = "Success"
         Alert.alert(title, message);
         console.log('logged: ' , data)
-        Actions.pop();
     }).catch((error)=>{
         //error callback
         const message = "Something went wrong!\n" + error;
@@ -58,6 +51,7 @@ const Buttons = ({mrn}) => (
             borderRadius={50}
             onPress = {() => {
                 logButtonPress("Triaged", mrn);
+                Actions.pop();
             }
         }>
             <Text>Triaged</Text>
@@ -71,6 +65,7 @@ const Buttons = ({mrn}) => (
             borderRadius={50}
             onPress = {() => {
                 logButtonPress("Roomed", mrn);
+                Actions.rooms({mrn: mrn});
             }
         }>
             <Text>Roomed</Text>
@@ -84,6 +79,7 @@ const Buttons = ({mrn}) => (
             borderRadius={50}
             onPress = {() => {
                 logButtonPress("Seen by MD", mrn);
+                Actions.pop();
             }
         }>
             <Text>Seen by MD</Text>
@@ -97,6 +93,7 @@ const Buttons = ({mrn}) => (
             borderRadius={50}
             onPress = {() => {
                 logButtonPress("Discharged by MD", mrn);
+                Actions.pop();
             }
         }>
             <Text>Discharged by MD</Text>
@@ -110,6 +107,7 @@ const Buttons = ({mrn}) => (
             borderRadius={50}
             onPress = {() => {
                 logButtonPress("Discharged by RN", mrn);
+                Actions.pop();
             }
         }>
             <Text>Discharged by RN</Text>
@@ -123,36 +121,13 @@ const Buttons = ({mrn}) => (
             borderRadius={50}
             onPress = {() => {
                 logButtonPress("Room cleaned", mrn);
+                Actions.pop();
             }
         }>
             <Text>Room cleaned</Text>
         </AwesomeButtonBlue>
     </View>
 );
-/*
-    logButtonPress(action, mrn) {
-        FirebaseRef.child('barcodes').push({
-            action,
-            mrn,
-            log_time: Firebase.database.ServerValue.TIMESTAMP
-        }).then((data)=>{
-            //success callback
-            const date = new Date();
-            const message = '"' + action + '" action has been logged for MRN #' + mrn
-                + "\n\nTimestamp: " + date;
-            const title = "Success"
-            Alert.alert(title, message);
-            console.log('logged: ' , data)
-        }).catch((error)=>{
-            //error callback
-            const date = new Date();
-            const message = "Something went wrong!\n" + error;
-            const title = "Error"
-            Alert.alert(title, message);
-            console.log('error: ' , error)
-        })
-    }
-} */
 
 Buttons.propTypes = {
     mrn: PropTypes.any.isRequired,

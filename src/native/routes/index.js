@@ -28,10 +28,7 @@ import AboutComponent from '../components/About';
 
 import ScannerComponent from '../components/Scanner/BarcodeScanner';
 import ButtonsComponent from '../components/Scanner/Buttons';
-
-
-/* TODO: Make Scanner Component open Buttons Component on successful
-    scan and pass the data in as MRN */
+import RoomComponent from '../components/Scanner/Room';
 
 const Index = (
   <Stack hideNavBar>
@@ -101,6 +98,11 @@ const Index = (
                 key="buttons"
                 title="LOG DATA"
                 component={ButtonsComponent}
+            />
+            <Scene
+                key="rooms"
+                title="ENTER ROOM NUMBER"
+                component={RoomComponent}
             />
         </Stack>
       </Tabs>

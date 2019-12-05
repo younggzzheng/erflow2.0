@@ -9,7 +9,7 @@ var roomNum;
 const logRoomEntry = function(mrn, room){
     FirebaseRef.child('barcodes').push({
         action: "Room number entered",
-        mrn: mrn ? mrn : "failed",
+        num: mrn ? mrn : "failed",
         room: room ? room : "failed",
         log_time: Firebase.database.ServerValue.TIMESTAMP
     }).then((data)=>{

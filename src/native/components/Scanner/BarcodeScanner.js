@@ -4,6 +4,7 @@ import Constants from 'expo-constants';
 import * as Permissions from 'expo-permissions';
 
 import { BarCodeScanner } from 'expo-barcode-scanner';
+import { Actions } from 'react-native-router-flux';
 
 import { Firebase, FirebaseRef } from '../../../lib/firebase';
 
@@ -53,22 +54,7 @@ export default class BarcodeScanner extends React.Component {
   handleBarCodeScanned = ({ type, data }) => {
     this.setState({ scanned: true });
     alert(`Bar code with type ${type} and data ${data} has been scanned!`);
-    this.writeUserData(type,data);
+    Actions.buttons({mrn: data});
   };
-
-  writeUserData(type,data){
-    FirebaseRef.child('barcodes').push({
-        type,
-        data,
-        log_time: Firebase.database.ServerValue.TIMESTAMP
-    }).then((data)=>{
-        //success callback
-        console.log('logged: ' , data)
-    }).catch((error)=>{
-        //error callback
-        console.log('error: ' , error)
-    })
-}
-
-
+  
 }

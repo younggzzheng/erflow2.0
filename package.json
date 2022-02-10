@@ -64,7 +64,7 @@
     "eslint-plugin-react": "^7.16.0",
     "gh-pages": "^2.1.1",
     "jest-expo": "^32.0.1",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "react-scripts": "2.1.8"
   }
 }
